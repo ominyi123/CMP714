@@ -10,4 +10,9 @@ public class Stack {
         top = -1;
         array = new int[size];
     }
+
+    boolean isFull(){
+        return (top == size -1);
+    }
+
 }
