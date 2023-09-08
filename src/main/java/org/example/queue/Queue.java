@@ -39,11 +39,12 @@ class Queue {
 
         else {
             for (int i = 0; i < rear - 1; i++) {
-                queue[i] = queue[i + 1];
+                queue[i] = queue[i + 1];// i = 0 therefore queue[0] = queue[0+1]
             }
 
-            if (rear < capacity)
+            if (rear < capacity) {
                 queue[rear] = 0;
+            }
             rear--;
         }
     }
@@ -62,7 +63,7 @@ class Queue {
 
     void queueFront()
     {
-        if (front == rear) {
+        if (queueIsEmpty()) {
             System.out.println("Queue is Empty");
             return;
         }
@@ -71,23 +72,23 @@ class Queue {
 
     public static void main(String[] args)
     {
-        Queue queue = new Queue(3);
+        Queue myQueue = new Queue(3);
 
-        queue.queueDisplay();
+        myQueue.queueDisplay();
 
-        queue.queueEnqueue(11);
-        queue.queueEnqueue(13);
-        queue.queueEnqueue(7);
+        myQueue.queueEnqueue(11);
+        myQueue.queueEnqueue(13);
+        myQueue.queueEnqueue(7);
 
-        queue.queueDisplay();
+        myQueue.queueDisplay();
 
 
-        queue.queueDequeue();
+        myQueue.queueDequeue();
         System.out.println("after two node deletion");
 
-        queue.queueDisplay();
+        myQueue.queueDisplay();
 
-        queue.queueFront();
+        myQueue.queueFront();
     }
 }
 
