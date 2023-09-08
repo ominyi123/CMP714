@@ -11,10 +11,18 @@ class Queue {
         queue = new int[capacity];
     }
 
+    boolean queueIsEmpty(){
+        return (front == rear);
+    }
+
+    boolean queueIsFull(){
+        return (capacity == rear);
+    }
+
     void queueEnqueue(int data)
     {
-        if (capacity == rear) {
-            System.out.printf("\nQueue is full\n");
+        if (queueIsFull()) {
+            System.out.println("Queue is full");
         }
 
         else {
@@ -23,13 +31,10 @@ class Queue {
         }
     }
 
-    boolean queueIsEmpty(){
-        return (front == rear);
-    }
     void queueDequeue()
     {
         if (queueIsEmpty()) {
-            System.out.printf("\nQueue is empty\n");
+            System.out.println("Queue is empty");
         }
 
         else {
@@ -46,22 +51,22 @@ class Queue {
     void queueDisplay()
     {
         if (queueIsEmpty()) {
-            System.out.printf("\nQueue is Empty\n");
+            System.out.println("Queue is Empty");
             return;
         }
 
         for (int i = front; i < rear; i++) {
-            System.out.printf(" ===> " +queue[i]);
+            System.out.println(" ===> " +queue[i]);
         }
     }
 
     void queueFront()
     {
         if (front == rear) {
-            System.out.printf("\nQueue is Empty\n");
+            System.out.println("Queue is Empty");
             return;
         }
-        System.out.printf("\nFront Element is: %d", queue[front]);
+        System.out.println("Front Element is: "+ queue[front]);
     }
 
     public static void main(String[] args)
@@ -78,8 +83,7 @@ class Queue {
 
 
         queue.queueDequeue();
-        System.out.printf(
-                "\n\nafter two node deletion\n\n");
+        System.out.println("after two node deletion");
 
         queue.queueDisplay();
 
